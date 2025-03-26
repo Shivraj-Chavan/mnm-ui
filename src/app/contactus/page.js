@@ -15,7 +15,11 @@ export default function ContactForm() {
           <TextInput label="Name" id="name" required />
           <TextInput label="Phone Number" id="phone" type="tel" required />
           <TextArea label="Address" id="address" required />
-          <Button text="Submit" />
+
+
+
+
+          <Button text="Submit 2" />
         </form>
       </div>
     </div>
