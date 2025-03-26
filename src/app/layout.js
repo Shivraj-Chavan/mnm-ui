@@ -1,5 +1,6 @@
 import { Poppins  } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
 
@@ -12,9 +13,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} antialiased`}
+        className={`${poppins.className} antialiased flex flex-col min-h-screen justify-between`}
       >
+         <nav className="w-full bg-white shadow-md py-4 px-6 flex items-center justify-between">
+        <Image src="/logo.png" alt="logo" height={60} width={180} />
+      </nav>
         {children}
+        <footer className="bg-gray-900 text-white text-center py-4">
+        <p className="text-lg">Contact: +91 9999999999</p>
+        <p className="text-sm">© {new Date().getFullYear()} Majhi Navi Mumbai. All Rights Reserved.</p>
+      </footer>
       </body>
     </html>
   );
