@@ -15,8 +15,8 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.className} antialiased flex flex-col min-h-screen justify-between`}
       >
-         <nav className="w-full bg-white shadow-md py-4 px-6 flex items-center justify-between">
-        <Image src="/logo.png" alt="logo" height={60} width={180} />
+         <nav className="w-full bg-white shadow-md py-4 px-6 flex items-center justify-center md:justify-between">
+        <Image src="/logo.png" alt="logo" height={100} width={240} />
       </nav>
         {children}
         <footer className="bg-gray-900 text-white text-center py-4">

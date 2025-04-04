@@ -45,15 +45,15 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="flex items-center justify-center px-6 py-6 bg-gradient-to-br from-[#FF9933] via-white to-[#138808]">
-      <div className="w-full max-w-md space-y-8 bg-white p-8 shadow-lg rounded-lg">
-        <h2 className="text-center text-2xl font-bold tracking-tight text-gray-900">
+    <div className="flex items-center justify-center px-3 md:px-6 py-6 bg-gradient-to-br from-[#FF9933] via-white to-[#138808]">
+      <div className="w-full max-w-md space-y-8 bg-white p-4 md:p-8 shadow-lg rounded-lg">
+        <h2 className="text-center text-xl md:text-2xl font-bold tracking-tight text-orange-500">
           Enter Your Details, Our Team Will Contact You Soon...
         </h2>
 
         {message && <p className="text-center text-green-600">{message}</p>}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-2 md:space-y-6">
           <TextInput
             label="Company Name"
             id="company_name"
