@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
       </nav>
         {children}
         <footer className="bg-gray-900 text-white text-center py-4">
-        <p className="text-lg">Contact: +91 9999999999</p>
+        <p className="text-lg">Contact: +91 91524 18196</p>
         <p className="text-sm">© {new Date().getFullYear()} Majhi Navi Mumbai. All Rights Reserved.</p>
       </footer>
       </body>
