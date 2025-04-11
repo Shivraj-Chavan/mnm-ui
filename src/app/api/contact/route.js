@@ -1,45 +1,41 @@
-import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer';
+
 export async function POST(request) {
     const body = await request.json();
-
     const { company_name, name, phone, enquiry } = body;
-    console.log(body);
+
     if (!company_name || !name || !phone || !enquiry) {
-        return Response.json({ message: "All fields are required" });
+        return Response.json({ message: "All fields are required" }, { status: 400 });
     }
 
     try {
-        // Configure Nodemailer transport
+        // Configure Nodemailer transport for Gmail
         let transporter = nodemailer.createTransport({
-            host:"smtp.office365.com",
-            port: 587,
-           secure:false,
+            service: 'gmail',
             auth: {
-                user: "admin@majhinavimumbai.com",
-                pass: "Admin@2025", 
+                user: 'shivrajchavan1902@gmail.com',           // Replace with your Gmail address
+                pass: 'glyulrmtzhjjzeah',        // Use Gmail App Password (not your real Gmail password)
             },
         });
 
         // Email content
         let mailOptions = {
-            from: '"Your Website" <info@majhinavimumbai.com>',
-            // to: "admin@majhinavimumbai.com",
-            to: "shivrajchavan1902@gmail.com",
-            subject: "New Contact Form Submission",
+            from: 'shivrajchavan1902@gmail.com',
+            to: 'shivrajpchavan@gmail.com', // Or wherever you want to send
+            subject: 'New Contact Form Submission',
             text: `Company Name: ${company_name}
-                Name: ${name}
-                Phone: ${phone}
-                Enquiry: ${enquiry}`,
+Name: ${name}
+Phone: ${phone}
+Enquiry: ${enquiry}`,
         };
 
-        // Send Email
+        // Send email
         await transporter.sendMail(mailOptions);
-        return Response.json({ message: "Email sent successfully!" },{status:200});
+
+        return Response.json({ message: "Email sent successfully!" }, { status: 200 });
 
     } catch (error) {
-        console.log(error)
-        return Response.json({ message: "Error sending email", error },{status:500});
+        console.error(error);
+        return Response.json({ message: "Error sending email", error }, { status: 500 });
     }
-
-
 }

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import TextInput from "@/components/TextInput";
 import TextArea from "@/components/TextArea";
@@ -14,6 +14,7 @@ export default function ContactForm() {
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false); // New state for error handling
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -22,6 +23,8 @@ export default function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setMessage("");
+    setIsError(false);
 
     try {
       const response = await fetch("/api/contact", {
@@ -31,14 +34,18 @@ export default function ContactForm() {
       });
 
       const result = await response.json();
+
       if (response.ok) {
-        setMessage("Your enquiry has been sent successfully!");
-        setFormData({ company_name: "", name: "", phone: "", enquiry: "" });
+        setMessage("✅ Your enquiry has been sent successfully!");
+        setIsError(false);
+        setFormData({ company_name: "", name: "", phone: "", enquiry: "" }); // Clear fields
       } else {
-        setMessage(result.message || "Something went wrong!");
+        setMessage(result.message || "❌ Something went wrong!");
+        setIsError(true);
       }
     } catch (error) {
-      setMessage("Failed to send enquiry!");
+      setMessage("❌ Failed to send enquiry!");
+      setIsError(true);
     }
 
     setLoading(false);
@@ -51,7 +58,15 @@ export default function ContactForm() {
           Enter Your Details, Our Team Will Contact You Soon...
         </h2>
 
-        {message && <p className="text-center text-green-600">{message}</p>}
+        {message && (
+          <p
+            className={`text-center font-medium ${
+              isError ? "text-red-600" : "text-green-600"
+            }`}
+          >
+            {message}
+          </p>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-2 md:space-y-6">
           <TextInput
