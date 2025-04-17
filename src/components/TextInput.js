@@ -1,12 +1,12 @@
-export default function TextInput({ label, id, type = "text", required = false ,onChange}) {
+export default function TextInput({ label, id,name, type = "text", required = false ,onChange}) {
     return (
-      <div>
-        <label htmlFor={id} className="block text-sm font-semibold text-gray-900">
+      <div className="mt-3">
+        <label htmlFor={id} className="block text-sm font-semibold text-green-900">
           {label}
         </label>
         <input
           id={id}
-          name={id}
+          name={id || name}
           type={type}
           onChange={onChange}
           required={required}

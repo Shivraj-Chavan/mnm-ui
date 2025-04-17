@@ -10,10 +10,15 @@ export default function Home() {
           Registration in Progress...
         </h1>
         <Link
-          className="bg-green-700 p-3 px-6 rounded-lg text-white text-lg hover:bg-green-800 transition"
+          className="bg-blue-600 p-3 px-6 rounded-lg text-white text-lg hover:bg-blue-800 transition"
           href="/contactus"
         >
-          Click here to Contact Us
+         Click here to Inquire 
+        </Link><Link
+          className="bg-green-700 mt-7 p-3 px-6 rounded-lg text-white text-lg hover:bg-green-800 transition"
+          href="/register"
+        >
+         Click here to register
         </Link>
       </main>
     </div>
