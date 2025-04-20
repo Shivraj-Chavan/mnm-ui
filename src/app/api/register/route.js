@@ -52,7 +52,6 @@ Business Info:
 - Nature of Business: ${body.nature}
 - Category: ${body.category}
 - Sub Category: ${body.subCategory}
-- Other: ${body.other || "N/A"}
 `;
 
     const mailOptions = {

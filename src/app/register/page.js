@@ -31,7 +31,6 @@ export default function Registrationform() {
     nature: "",
     category: "",
     subCategory: "",
-    other: "",
   });
 
   const handleInputChange = (e) => {
@@ -128,7 +127,7 @@ console.log({
       <TextInput label="Pin Code" name="pinCode" type='number' value={formData.pinCode} onChange={handleInputChange} color="orange" />
 
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        <TextInput label="Telephone No." type='tel' name="telephone" value={formData.telephone} onChange={handleInputChange} color="orange"/>
+        <TextInput label="Telephone No." type='number' name="telephone" value={formData.telephone} onChange={handleInputChange} color="orange"/>
         <TextInput label="FAX No." name="fax" type='number' value={formData.fax} onChange={handleInputChange} color="orange"/>
         <TextInput label="Mobile No." type='number' name="mobile" value={formData.mobile} onChange={handleInputChange} required color="orange"/>
     
@@ -142,11 +141,11 @@ console.log({
         <TextInput label="Contact Person" name="contactPerson" value={formData.contactPerson} onChange={handleInputChange} required color="blue"/>
 
       <div className="grid  grid-cols-2 md:grid-cols-3 gap-4">
-        <TextInput label="Telephone No." type='tel' name="contactTel" value={formData.contactTel} onChange={handleInputChange} color="blue" />
+        <TextInput label="Telephone No." type='number' name="contactTel" value={formData.contactTel} onChange={handleInputChange} color="blue" />
         <TextInput label="FAX No." name="contactFax" type='number' value={formData.contactFax} onChange={handleInputChange} color="blue"/>
         <TextInput label="Mobile No." type='number' name="contactMobile" value={formData.contactMobile} onChange={handleInputChange} required color="blue" />
-        <TextInput label="WhatsApp No." type='number' name="whatsapp" value={formData.whatsapp} onChange={handleInputChange} required color="blue" />
-        <TextInput label="Email" name="email" type='email' value={formData.email} onChange={handleInputChange} required color="blue" />
+        <TextInput label="WhatsApp No." type='number' name="contactWhatsapp" value={formData.contactWhatsapp} onChange={handleInputChange} required color="blue" />
+        <TextInput label="Email" name="contactEmail" type='email' value={formData.email} onChange={handleInputChange} required color="blue" />
       </div>
 
      {/* Nature of Bussiness */}
