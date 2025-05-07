@@ -14,7 +14,7 @@ export async function POST(request) {
             service: 'gmail',
             auth: {
                 user: 'majhinavimumbai@gmail.com',
-                pass: 'wrqdfcgcnntttgxp',},
+                pass: 'bifdpqqopbcgtnow',},
         });
 
         // Email content
