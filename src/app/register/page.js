@@ -95,15 +95,15 @@ console.log({
       {/* Location & Gst */}
       <div className="grid grid-cols-2 gap-4 focus-ring-2 focus-ring-orange-300">
         <TextInput label="Location" name="location" value={formData.location} onChange={handleInputChange} required  />
-        <TextInput label="GST No." name="gst" value={formData.gst} onChange={handleInputChange} required />
+        <TextInput label="GST No." name="gst" value={formData.gst} onChange={handleInputChange}  />
       </div>
 
     <Heading title="Plan Information" />
     <CheckBox label="Type of Company" options={["Proprietorship", "Partnership", "LLP", "Public LTD", "HUF", "Other"]} selected={companyType} onChange={(e) => handleCheckboxChange(e, setCompanyType, companyType)} />
       <div className="mb-4">
-        <label className="block font-medium mb-1">Subscription Plan</label>
-        {["Silver", "Gold", "Platinum"].map(p => (
-          <label key={p} className="mr-4">
+        <label className="block font-semibold text-green-900 mb-1">Subscription Plan</label>
+        {["Silver (₨ : 100) ", "Gold (₨ : 500)", "Platinum (₨ : 1000)"].map(p => (
+          <label key={p} className="mr-4 text-sm">
             <input type="radio" name="plan" value={p} checked={plan === p} onChange={(e) => setPlan(e.target.value)} required />
             <span className="ml-1">{p}</span>
           </label>
@@ -111,9 +111,9 @@ console.log({
       </div>
 
       <div className="mb-4">
-        <label className="block font-medium mb-1">Plan Duration</label>
+        <label className="block   font-semibold text-green-900 mb-1">Plan Duration</label>
         {[1, 2, 3, 4, 5].map(y => (
-          <label key={y} className="mr-4">
+          <label key={y} className="mr-4 text-sm">
             <input type="radio" name="duration" value={`${y} Year`} checked={duration === `${y} Year`} onChange={(e) => setDuration(e.target.value)} required />
             <span className="ml-1">{y} Year</span>
           </label>
@@ -131,9 +131,9 @@ console.log({
         <TextInput label="FAX No." name="fax" type='number' value={formData.fax} onChange={handleInputChange} color="orange"/>
         <TextInput label="Mobile No." type='number' name="mobile" value={formData.mobile} onChange={handleInputChange} required color="orange"/>
     
-        <TextInput label="WhatsApp No." type='number' name="whatsapp" value={formData.whatsapp} onChange={handleInputChange} required color="orange" />
-        <TextInput label="Email" name="email" type='email' value={formData.email} onChange={handleInputChange} required color="orange" />
-        <TextInput label="Website" name="website" value={formData.website} onChange={handleInputChange} required color="orange"/>
+        <TextInput label="WhatsApp No." type='number' name="whatsapp" value={formData.whatsapp} onChange={handleInputChange}  color="orange" />
+        <TextInput label="Email" name="email" type='email' value={formData.email} onChange={handleInputChange}  color="orange" />
+        <TextInput label="Website" name="website" value={formData.website} onChange={handleInputChange}  color="orange"/>
       </div>
 
      {/* Contact Details */}
@@ -145,17 +145,17 @@ console.log({
         <TextInput label="FAX No." name="contactFax" type='number' value={formData.contactFax} onChange={handleInputChange} color="blue"/>
         <TextInput label="Mobile No." type='number' name="contactMobile" value={formData.contactMobile} onChange={handleInputChange} required color="blue" />
         <TextInput label="WhatsApp No." type='number' name="contactWhatsapp" value={formData.contactWhatsapp} onChange={handleInputChange} required color="blue" />
-        <TextInput label="Email" name="contactEmail" type='email' value={formData.email} onChange={handleInputChange} required color="blue" />
+        <TextInput label="Email" name="contactEmail" type='email' value={formData.email} onChange={handleInputChange}  color="blue" />
       </div>
 
      {/* Nature of Bussiness */}
       <Heading title="Nature of Business" />
-      <TextInput label="Nature of Business" name="nature" value={formData.nature} onChange={handleInputChange} required color="green"/>
+      <TextInput label="Nature of Business" name="nature" value={formData.nature} onChange={handleInputChange}  color="green"/>
 
       {/* category & subcategory */}
       <div className="grid grid-cols-2 gap-4">
-        <TextInput label="Category" name="category" value={formData.category} onChange={handleInputChange} required color="green" />
-        <TextInput label="Sub Category" name="subCategory" value={formData.subCategory} onChange={handleInputChange} required color="green" />
+        <TextInput label="Category" name="category" value={formData.category} onChange={handleInputChange}  color="green" />
+        <TextInput label="Sub Category" name="subCategory" value={formData.subCategory} onChange={handleInputChange}  color="green" />
       </div>
 
         {/* <TextInput label="Others (Specify)" name="other" value={formData.other} onChange={handleInputChange} required color="green" /> */}
