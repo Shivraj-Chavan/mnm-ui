@@ -19,9 +19,15 @@ export default function RootLayout({ children }) {
         <Image src="/logo.png" alt="logo" height={100} width={240} />
       </nav>
         {children}
-        <footer className="bg-gray-900 text-white text-center py-4">
+
+        <footer className="text-white text-center">
+          <marquee className="bg-green-800 text-white text-xl py-1" behavior="" direction="">
+            Subscribe now for  1  year and get service for 1.5 year.  
+          </marquee>
+          <div className="bg-gray-900 py-4">
         <p className="text-lg">Contact: +91 91524 18196</p>
         <p className="text-sm">© {new Date().getFullYear()} Majhi Navi Mumbai. All Rights Reserved.</p>
+          </div>
       </footer>
       </body>
     </html>

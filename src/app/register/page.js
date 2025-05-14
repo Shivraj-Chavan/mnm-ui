@@ -4,12 +4,15 @@ import Button from '@/components/Button';
 import CheckBox from '@/components/CheckBox';
 import Heading from '@/components/Heading';
 import TextInput from '@/components/TextInput';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
 export default function Registrationform() {
   const [companyType, setCompanyType] = useState([]);
   const [duration, setDuration] = useState("");
   const [plan, setPlan] = useState("");
+  const router = useRouter();
+  const [isLoading,setIsLoading]=useState(false)
   const [formData, setFormData] = useState({
     location: "",
     gst: "",
@@ -42,6 +45,7 @@ export default function Registrationform() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 console.log({
   ...formData,
   companyType,
@@ -67,15 +71,16 @@ console.log({
         return;
       }
   
-      alert("✅ Registration successful. Email sent!");
-      window.location.reload();
-   
+      alert("✅ Registration successful. Email sent!");   
       setCompanyType([]);
       setPlan("");
       setDuration("");
+       router.push('/thank-you'); 
     } catch (error) {
       console.error(error);
       alert("❌ Something went wrong. Please try again later.");
+    }finally{
+      setIsLoading(false); 
     }
   };
   
@@ -144,7 +149,7 @@ console.log({
         <TextInput label="Telephone No." type='number' name="contactTel" value={formData.contactTel} onChange={handleInputChange} color="blue" />
         <TextInput label="FAX No." name="contactFax" type='number' value={formData.contactFax} onChange={handleInputChange} color="blue"/>
         <TextInput label="Mobile No." type='number' name="contactMobile" value={formData.contactMobile} onChange={handleInputChange} required color="blue" />
-        <TextInput label="WhatsApp No." type='number' name="contactWhatsapp" value={formData.contactWhatsapp} onChange={handleInputChange} required color="blue" />
+        <TextInput label="WhatsApp No." type='number' name="contactWhatsapp" value={formData.contactWhatsapp} onChange={handleInputChange}  color="blue" />
         <TextInput label="Email" name="contactEmail" type='email' value={formData.email} onChange={handleInputChange}  color="blue" />
       </div>
 
@@ -162,10 +167,25 @@ console.log({
 
           {/* Submit btn */}
         <div className="flex justify-center items-center">
-          <Button text="Submit" type="submit" className="mt-4">
-            Submit
-          </Button>
-        </div>
+  <Button
+    text={isLoading ? "Submitting..." : "Submit"}
+    type="submit"
+    className="mt-4"
+    disabled={isLoading}
+  >
+    {isLoading ? (
+      <span className="flex items-center gap-2">
+        <svg className="animate-spin h-4 w-4 text-white" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+        </svg>
+        Submitting...
+      </span>
+    ) : (
+      "Submit"
+    )}
+  </Button>
+</div>
 
     </form>
     );
